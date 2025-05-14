@@ -1,15 +1,12 @@
 .selection-screen {
-  /* display: flex; */
+  display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vh;
-  max-width: 800px;
-  margin: 0 auto;
-  /* padding: 20px; */
+  width: var(--app-width);
 }
 
 .selection-screen h2 {
-  text-align: center;
+  text-align: left;
   margin-bottom: 30px;
   color: #333;
 }
@@ -61,27 +58,35 @@ select, input {
 }
 
 .collections-grid {
-  display: grid;
-  /* width: 100vw; */
-  /* max-width: 800px; */
-  gap: 10px;
-  margin: 0px;
+  --grid-gap:10px;
+  --grid-width: calc(var(--app-width) - (2 * var(--grid-gap)));
+  width: calc(var(--app-width) - var(--grid-gap));
+  padding: var(--grid-gap) 0 var(--grid-gap) var(--grid-gap);
+  margin: 0;
+}
+
+.collection-card {
+    display: inline-block;
+    vertical-align:top;
+    height: 250px;
+    margin-right: var(--grid-gap);
+    margin-bottom: var(--grid-gap);
 }
 
 @media (max-width: 300px) {
-  .collections-grid {
-    grid-template-columns: 100vw;
+  .collection-card {
+    width: var(--grid-width);
   }
 }
 
 @media (min-width: 301px) and (max-width: 600px) {
-  .collections-grid {    
-    grid-template-columns: 50vw 50vw;
+  .collection-card {
+    width: calc((var(--grid-width) - var(--grid-gap))/2);
   }
 }
 
 @media (min-width: 601px) {
-  .collections-grid {    
-    grid-template-columns: 33vw 33vw 33vw;
+  .collection-card {
+    width: calc((var(--grid-width) - 2 * var(--grid-gap))/3);
   }
 }
