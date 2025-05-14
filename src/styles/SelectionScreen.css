@@ -1,0 +1,87 @@
+.selection-screen {
+  /* display: flex; */
+  flex-direction: column;
+  align-items: center;
+  width: 100vh;
+  max-width: 800px;
+  margin: 0 auto;
+  /* padding: 20px; */
+}
+
+.selection-screen h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+select, input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* small {
+  display: block;
+  margin-top: 5px;
+  color: #666;
+} */
+
+.start-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.start-button:hover {
+  background-color: #45a049;
+}
+
+.start-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.collections-grid {
+  display: grid;
+  /* width: 100vw; */
+  /* max-width: 800px; */
+  gap: 10px;
+  margin: 0px;
+}
+
+@media (max-width: 300px) {
+  .collections-grid {
+    grid-template-columns: 100vw;
+  }
+}
+
+@media (min-width: 301px) and (max-width: 600px) {
+  .collections-grid {    
+    grid-template-columns: 50vw 50vw;
+  }
+}
+
+@media (min-width: 601px) {
+  .collections-grid {    
+    grid-template-columns: 33vw 33vw 33vw;
+  }
+}

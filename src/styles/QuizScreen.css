@@ -1,0 +1,143 @@
+.quiz-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.quiz-header {
+  text-align: center;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.quiz-progress {
+  font-size: 14px;
+  color: #666;
+  margin-top: 10px;
+}
+
+.cards-container {
+  position: relative;
+  width: 100%;
+  height: 340px; /* Adjust based on your card height + margin */
+}
+
+.card-animation-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  pointer-events: none;
+}
+
+.card-animation-wrapper.visible {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.card-animation-wrapper.current {
+  z-index: 10;
+}
+
+.question-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 20px;
+}
+
+.question {
+  margin-bottom: 20px;
+}
+
+.question h3 {
+  font-size: 24px;
+  margin-top: 10px;
+}
+
+.answer-input {
+  margin-bottom: 20px;
+}
+
+.answer-input input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.submit-button, .next-button {
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover, .next-button:hover {
+  background-color: #0b7dda;
+}
+
+.submit-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.result {
+  padding: 15px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.result.correct {
+  background-color: #dff0d8;
+  color: #3c763d;
+}
+
+.result.incorrect {
+  background-color: #f2dede;
+  color: #a94442;
+}
+
+.score-display {
+  margin-top: 60px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.quiz-complete {
+  text-align: center;
+  padding: 20px;
+}
+
+.final-score {
+  margin: 30px 0;
+  font-size: 18px;
+}
+
+.finish-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.finish-button:hover {
+  background-color: #45a049;
+}

@@ -1,0 +1,592 @@
+{
+  "collections": [
+    {
+      "id": "english-french",
+      "title": "English to French",
+      "reversible": true,
+      "items": [
+        {
+          "key": "hello",
+          "value": "bonjour"
+        },
+        {
+          "key": "goodbye",
+          "value": "au revoir"
+        },
+        {
+          "key": "thank you",
+          "value": "merci"
+        }
+      ]
+    },
+    {
+      "id": "capital-cities",
+      "title": "Countries and Capital Cities",
+      "reversible": true,
+      "items": [
+        {
+          "key": "France",
+          "value": "Paris"
+        },
+        {
+          "key": "Japan",
+          "value": "Tokyo"
+        },
+        {
+          "key": "Germany",
+          "value": "Berlin"
+        },
+        {
+          "key": "Italy",
+          "value": "Rome"
+        },
+        {
+          "key": "UK",
+          "value": "London"
+        },
+        {
+          "key": "Brazil",
+          "value": "Brasília"
+        }
+      ]
+    },
+    {
+      "id": "french-phonetic",
+      "title": "French Telephony Alphabet",
+      "reversible": false,
+      "items": [
+        {
+          "key": "A",
+          "value": "Alpha"
+        },
+        {
+          "key": "B",
+          "value": "Bravo"
+        },
+        {
+          "key": "C",
+          "value": "Charlie"
+        },
+        {
+          "key": "D",
+          "value": "Delta"
+        },
+        {
+          "key": "E",
+          "value": "Echo"
+        },
+        {
+          "key": "F",
+          "value": "Foxtrot"
+        },
+        {
+          "key": "G",
+          "value": "Golf"
+        },
+        {
+          "key": "H",
+          "value": "Hotel"
+        },
+        {
+          "key": "I",
+          "value": "India"
+        },
+        {
+          "key": "J",
+          "value": "Juliett"
+        },
+        {
+          "key": "K",
+          "value": "Kilo"
+        },
+        {
+          "key": "L",
+          "value": "Lima"
+        },
+        {
+          "key": "M",
+          "value": "Mike"
+        },
+        {
+          "key": "N",
+          "value": "November"
+        },
+        {
+          "key": "O",
+          "value": "Oscar"
+        },
+        {
+          "key": "P",
+          "value": "Papa"
+        },
+        {
+          "key": "Q",
+          "value": "Quebec"
+        },
+        {
+          "key": "R",
+          "value": "Romeo"
+        },
+        {
+          "key": "S",
+          "value": "Sierra"
+        },
+        {
+          "key": "T",
+          "value": "Tango"
+        },
+        {
+          "key": "U",
+          "value": "Uniform"
+        },
+        {
+          "key": "V",
+          "value": "Victor"
+        },
+        {
+          "key": "W",
+          "value": "Whiskey"
+        },
+        {
+          "key": "X",
+          "value": "X-ray"
+        },
+        {
+          "key": "Y",
+          "value": "Yankee"
+        },
+        {
+          "key": "Z",
+          "value": "Zulu"
+        }
+      ]
+    },
+    {
+      "id": "multiplication-table",
+      "title": "Multiplication Table (2-15)",
+      "reversible": false,
+      "items": [
+        {
+          "key": "2 × 2",
+          "value": "4"
+        },
+        {
+          "key": "2 × 3",
+          "value": "6"
+        },
+        {
+          "key": "2 × 4",
+          "value": "8"
+        },
+        {
+          "key": "2 × 5",
+          "value": "10"
+        },
+        {
+          "key": "2 × 6",
+          "value": "12"
+        },
+        {
+          "key": "2 × 7",
+          "value": "14"
+        },
+        {
+          "key": "2 × 8",
+          "value": "16"
+        },
+        {
+          "key": "2 × 9",
+          "value": "18"
+        },
+        {
+          "key": "2 × 10",
+          "value": "20"
+        },
+        {
+          "key": "2 × 11",
+          "value": "22"
+        },
+        {
+          "key": "2 × 12",
+          "value": "24"
+        },
+        {
+          "key": "2 × 13",
+          "value": "26"
+        },
+        {
+          "key": "2 × 14",
+          "value": "28"
+        },
+        {
+          "key": "2 × 15",
+          "value": "30"
+        },
+        {
+          "key": "3 × 3",
+          "value": "9"
+        },
+        {
+          "key": "3 × 4",
+          "value": "12"
+        },
+        {
+          "key": "3 × 5",
+          "value": "15"
+        },
+        {
+          "key": "3 × 6",
+          "value": "18"
+        },
+        {
+          "key": "3 × 7",
+          "value": "21"
+        },
+        {
+          "key": "3 × 8",
+          "value": "24"
+        },
+        {
+          "key": "3 × 9",
+          "value": "27"
+        },
+        {
+          "key": "3 × 10",
+          "value": "30"
+        },
+        {
+          "key": "3 × 11",
+          "value": "33"
+        },
+        {
+          "key": "3 × 12",
+          "value": "36"
+        },
+        {
+          "key": "3 × 13",
+          "value": "39"
+        },
+        {
+          "key": "3 × 14",
+          "value": "42"
+        },
+        {
+          "key": "3 × 15",
+          "value": "45"
+        },
+        {
+          "key": "4 × 4",
+          "value": "16"
+        },
+        {
+          "key": "4 × 5",
+          "value": "20"
+        },
+        {
+          "key": "4 × 6",
+          "value": "24"
+        },
+        {
+          "key": "4 × 7",
+          "value": "28"
+        },
+        {
+          "key": "4 × 8",
+          "value": "32"
+        },
+        {
+          "key": "4 × 9",
+          "value": "36"
+        },
+        {
+          "key": "4 × 10",
+          "value": "40"
+        },
+        {
+          "key": "4 × 11",
+          "value": "44"
+        },
+        {
+          "key": "4 × 12",
+          "value": "48"
+        },
+        {
+          "key": "4 × 13",
+          "value": "52"
+        },
+        {
+          "key": "4 × 14",
+          "value": "56"
+        },
+        {
+          "key": "4 × 15",
+          "value": "60"
+        },
+        {
+          "key": "5 × 5",
+          "value": "25"
+        },
+        {
+          "key": "5 × 6",
+          "value": "30"
+        },
+        {
+          "key": "5 × 7",
+          "value": "35"
+        },
+        {
+          "key": "5 × 8",
+          "value": "40"
+        },
+        {
+          "key": "5 × 9",
+          "value": "45"
+        },
+        {
+          "key": "5 × 10",
+          "value": "50"
+        },
+        {
+          "key": "5 × 11",
+          "value": "55"
+        },
+        {
+          "key": "5 × 12",
+          "value": "60"
+        },
+        {
+          "key": "5 × 13",
+          "value": "65"
+        },
+        {
+          "key": "5 × 14",
+          "value": "70"
+        },
+        {
+          "key": "5 × 15",
+          "value": "75"
+        },
+        {
+          "key": "6 × 6",
+          "value": "36"
+        },
+        {
+          "key": "6 × 7",
+          "value": "42"
+        },
+        {
+          "key": "6 × 8",
+          "value": "48"
+        },
+        {
+          "key": "6 × 9",
+          "value": "54"
+        },
+        {
+          "key": "6 × 10",
+          "value": "60"
+        },
+        {
+          "key": "6 × 11",
+          "value": "66"
+        },
+        {
+          "key": "6 × 12",
+          "value": "72"
+        },
+        {
+          "key": "6 × 13",
+          "value": "78"
+        },
+        {
+          "key": "6 × 14",
+          "value": "84"
+        },
+        {
+          "key": "6 × 15",
+          "value": "90"
+        },
+        {
+          "key": "7 × 7",
+          "value": "49"
+        },
+        {
+          "key": "7 × 8",
+          "value": "56"
+        },
+        {
+          "key": "7 × 9",
+          "value": "63"
+        },
+        {
+          "key": "7 × 10",
+          "value": "70"
+        },
+        {
+          "key": "7 × 11",
+          "value": "77"
+        },
+        {
+          "key": "7 × 12",
+          "value": "84"
+        },
+        {
+          "key": "7 × 13",
+          "value": "91"
+        },
+        {
+          "key": "7 × 14",
+          "value": "98"
+        },
+        {
+          "key": "7 × 15",
+          "value": "105"
+        },
+        {
+          "key": "8 × 8",
+          "value": "64"
+        },
+        {
+          "key": "8 × 9",
+          "value": "72"
+        },
+        {
+          "key": "8 × 10",
+          "value": "80"
+        },
+        {
+          "key": "8 × 11",
+          "value": "88"
+        },
+        {
+          "key": "8 × 12",
+          "value": "96"
+        },
+        {
+          "key": "8 × 13",
+          "value": "104"
+        },
+        {
+          "key": "8 × 14",
+          "value": "112"
+        },
+        {
+          "key": "8 × 15",
+          "value": "120"
+        },
+        {
+          "key": "9 × 9",
+          "value": "81"
+        },
+        {
+          "key": "9 × 10",
+          "value": "90"
+        },
+        {
+          "key": "9 × 11",
+          "value": "99"
+        },
+        {
+          "key": "9 × 12",
+          "value": "108"
+        },
+        {
+          "key": "9 × 13",
+          "value": "117"
+        },
+        {
+          "key": "9 × 14",
+          "value": "126"
+        },
+        {
+          "key": "9 × 15",
+          "value": "135"
+        },
+        {
+          "key": "10 × 10",
+          "value": "100"
+        },
+        {
+          "key": "10 × 11",
+          "value": "110"
+        },
+        {
+          "key": "10 × 12",
+          "value": "120"
+        },
+        {
+          "key": "10 × 13",
+          "value": "130"
+        },
+        {
+          "key": "10 × 14",
+          "value": "140"
+        },
+        {
+          "key": "10 × 15",
+          "value": "150"
+        },
+        {
+          "key": "11 × 11",
+          "value": "121"
+        },
+        {
+          "key": "11 × 12",
+          "value": "132"
+        },
+        {
+          "key": "11 × 13",
+          "value": "143"
+        },
+        {
+          "key": "11 × 14",
+          "value": "154"
+        },
+        {
+          "key": "11 × 15",
+          "value": "165"
+        },
+        {
+          "key": "12 × 12",
+          "value": "144"
+        },
+        {
+          "key": "12 × 13",
+          "value": "156"
+        },
+        {
+          "key": "12 × 14",
+          "value": "168"
+        },
+        {
+          "key": "12 × 15",
+          "value": "180"
+        },
+        {
+          "key": "13 × 13",
+          "value": "169"
+        },
+        {
+          "key": "13 × 14",
+          "value": "182"
+        },
+        {
+          "key": "13 × 15",
+          "value": "195"
+        },
+        {
+          "key": "14 × 14",
+          "value": "196"
+        },
+        {
+          "key": "14 × 15",
+          "value": "210"
+        },
+        {
+          "key": "15 × 15",
+          "value": "225"
+        }
+      ]
+    }
+  ]
+}
