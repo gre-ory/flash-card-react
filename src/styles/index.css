@@ -10,6 +10,7 @@ body, .root {
     padding: 0;
     width: 100%;
     height: 100%;
+    overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -41,3 +42,41 @@ a {
 .button:hover {
     background-color: #0056b3;
 }
+
+/* colors */
+
+body {
+    --color-white: #FFFFFF;
+    --color-black: #000000;
+    --color-yellow: #FFF1AD;
+    --color-red: #FFCCC6;
+    --color-purple: #B9B2F7;
+    --color-blue: #8FBEFF;
+    --color-cyan: #97DED8;
+    --color-green: #C3F2BB;
+    --color-gray: #CCC;
+
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    --main-back-color: var(--color-yellow);
+    --main-text-color: var(--color-black);
+    --front-card-instruction-color: var(--color-black);
+    --front-card-text-color: var(--color-black);
+    --front-card-incorrect-color: var(--color-black);
+    --front-card-correct-color: var(--color-black);
+    --front-card-back-color: var(--color-cyan);
+    --back-card-instruction-color: var(--color-black);
+    --back-card-text-color: var(--color-black);
+    --back-card-incorrect-color: var(--color-black);
+    --back-card-correct-color: var(--color-black);
+    --back-card-back-color: var(--color-gray);
+    --progress-success-color: var(--color-green);
+    --progress-failure-color: var(--color-red);
+    --progress-back-color: var(--color-white);
+}
+
+/* debug */
+
+/* * {
+  outline: 1px solid #f00 !important;
+} */

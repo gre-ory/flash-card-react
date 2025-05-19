@@ -152,7 +152,7 @@ function QuizCard({ term, answer, onResult, active }) {
     let opacity = 1;
     // let transform = `translateX(${offsetX}px) rotateY(${isFlipped ? '180deg' : '0deg'})`;
     let transform = `translateX(${offsetX}px)`;
-    // let rotate = 0;
+    let rotate = 0;
     
     // Scale opacity based on swipe distance (fade out as it moves away)
     const maxSwipeDistance = window.innerWidth / 2;
@@ -162,18 +162,11 @@ function QuizCard({ term, answer, onResult, active }) {
       // Calculate opacity (1 -> 0 as card moves away)
       opacity = Math.max(1 - (absOffset / maxSwipeDistance), 0.2);
       
-      // // Swiping left or right changes background color
-      // if (offsetX > 50) {
-      //   // Swiping right - correct (green)
-      //   backgroundColor = '#e6ffe6';
-      // } else if (offsetX < -50) {
-      //   // Swiping left - incorrect (red)
-      //   backgroundColor = '#ffe6e6';
-      // }
-      
       // Add rotation based on swipe direction
-      // rotate = offsetX * 0.05;
-      // rotate = Math.max(Math.min(rotate, 10), -10); // Limit rotation to -10 to 10 degrees
+      rotate = offsetX * 0.05;
+      rotate = Math.max(Math.min(rotate, 10), -10); // Limit rotation to -10 to 10 degrees
+
+      transform = `${transform} rotate(${rotate}deg)`;
     }
     
     // transform = `translateX(${offsetX}px) rotateY(${isFlipped ? '180deg' : '0deg'}) rotate(${rotate}deg)`;

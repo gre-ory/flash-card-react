@@ -47,14 +47,15 @@
   align-items: center;
   padding: 20px;
   box-sizing: border-box;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow);
   transform-style: preserve-3d;
   transition: transform 0.6s, background-color 0.3s;
   will-change: transform, opacity;
 }
 
 .card-front {
-  background-color: #7fa99b;
+  color: var(--front-card-text-color);
+  background-color: var(--front-card-back-color);
   transform: rotateY(0deg);
 }
 
@@ -63,7 +64,8 @@
 }
 
 .card-back {
-  background-color: #394a51;
+  color: var(--back-card-text-color);
+  background-color: var(--back-card-back-color);
   transform: rotateY(-180deg);
 }
 
@@ -81,20 +83,40 @@
   justify-content: center;
 }
 
-.card-instruction {
+.card-front .card-instruction {
   margin-bottom: 20px;
-  color: #5f5f5f;
+  color: var(--front-card-instruction-color);
   font-size: 14px;
+}
+
+.card-front .card-content {
+  color: var(--front-card-text-color);
+}
+
+.card-front .correct-button {
+  color: var(--front-card-correct-color);
+}
+
+.card-front .incorrect-button {
+  color: var(--front-card-incorrect-color);
 }
 
 .card-back .card-instruction {
   margin-bottom: 20px;
-  color: white;
+  color: var(--back-card-instruction-color);
   font-size: 14px;
 }
 
 .card-back .card-content {
-  color: white;
+  color: var(--back-card-text-color);
+}
+
+.card-back .correct-button {
+  color: var(--back-card-correct-color);
+}
+
+.card-back .incorrect-button {
+  color: var(--back-card-incorrect-color);
 }
 
 .card-buttons {
@@ -102,7 +124,6 @@
   display: flex;
   justify-content: space-between;
   bottom: -40px;
-  color: #888;
   font-size: 14px;
 }
 
@@ -134,13 +155,7 @@
 
 .card-front .incorrect-button,
 .card-front .correct-button {
-  color: black;
   transition: background-color 0.2s;
-}
-
-.card-back .incorrect-button,
-.card-back .correct-button {
-  color: white;
 }
 
 .correct-button:hover,

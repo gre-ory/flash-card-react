@@ -23,7 +23,7 @@ function CollectionCard({ collection, onSelect, onView }) {
         
         <button 
           className="view-collection-button"
-          onClick={() => onView(collection)}
+          onClick={() => onView(collection.id)}
         >
           {collection.items.length} terms
         </button>

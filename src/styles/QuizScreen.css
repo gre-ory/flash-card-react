@@ -29,18 +29,17 @@
   left: 0;
   width: 100%;
   opacity: 0;
+  /* display: none; */
   transform: scale(0.8);
   transition: opacity 0.3s ease-out, transform 0.3s ease-out;
   pointer-events: none;
 }
 
-.card-animation-wrapper.visible {
+.card-animation-wrapper.current-card {
   opacity: 1;
+  /* display: inline-block; */
   transform: scale(1);
   pointer-events: auto;
-}
-
-.card-animation-wrapper.current {
   z-index: 10;
 }
 
