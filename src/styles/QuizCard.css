@@ -127,22 +127,18 @@
   font-size: 14px;
 }
 
-.incorrect-button,
-.correct-button {
-  cursor: pointer;
-  padding: 5px 10px;
-  border-radius: 4px;
-  transition: background-color 0.2s, transform 0.2s;
+.card-buttons button {
+  --button-box-shadow: none;
 }
 
-.incorrect-button:hover,
-.correct-button:hover {
-  transform: scale(1.05);
+.card-front .card-buttons button {
+  color: var(--front-card-text-color);
+  background-color: var(--front-card-back-color);
 }
 
-.incorrect-button:active,
-.correct-button:active {
-  transform: scale(0.95);
+.card-back .card-buttons button {
+  color: var(--back-card-text-color);
+  background-color: var(--back-card-back-color);
 }
 
 .incorrect-button {
@@ -151,16 +147,6 @@
 
 .correct-button {
   text-align: right;
-}
-
-.card-front .incorrect-button,
-.card-front .correct-button {
-  transition: background-color 0.2s;
-}
-
-.correct-button:hover,
-.incorrect-button:hover {
-  background-color: rgba(255, 255, 255, 0.6);;
 }
 
 /* Ensure parent container doesn't clip fading card */

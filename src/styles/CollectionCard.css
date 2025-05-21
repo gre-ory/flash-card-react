@@ -13,9 +13,12 @@
 }
 
 .collection-card-header h3 {
-  margin: 0 0 10px 0;
-  font-size: 1.4rem;
-  color: #333;
+margin: 10px 0px;
+    font-size: 10px;
+    color: #ccc;
+    text-transform: uppercase;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
 }
 
 .collection-stats {
@@ -55,37 +58,15 @@
   flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 15px;
-}
-
-.question-count-button {
-  background-color: #f5f5f5;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 20px 20px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.question-count-button:hover {
-  background-color: #ade1ff;
-}
-
-.question-count-button:active {
-  transform: scale(0.95);
+  justify-content: space-evenly;
 }
 
 .view-collection-button {
-  background-color: transparent;
-  border: 1px solid #2196F3;
-  color: #2196F3;
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: background-color 0.2s;
+  --button-back-color: var(--color-gray);
 }
 
-.view-collection-button:hover {
-  background-color: rgba(33, 150, 243, 0.08);
+.question-count-options {
+  --button-h-padding: 20px;
+  --button-v-padding: 10px;
+  --button-back-color: var(--color-cyan);
 }

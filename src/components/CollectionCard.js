@@ -6,16 +6,10 @@ function CollectionCard({ collection, onSelect, onView }) {
   const questionOptions = [10, 20, 30, 50];
   
   // Filter options based on collection size
-  const availableOptions = questionOptions.filter(count => count <= collection.items.length);
-  
-  // If collection is smaller than smallest option, add its size
-  const displayOptions = collection.items.length < 10 
-    ? [collection.items.length, ...availableOptions]
-    : availableOptions;
-  
-  // Remove duplicates (in case collection size equals one of our standard options)
-  const uniqueOptions = [...new Set(displayOptions)].sort((a, b) => a - b);
-
+  var availableOptions = collection.items.length < 10
+    ? [collection.items.length]
+    : questionOptions.filter(count => count <= collection.items.length);
+    
   return (
     <div className="collection-card">
       <div className="collection-card-header">
@@ -31,7 +25,7 @@ function CollectionCard({ collection, onSelect, onView }) {
       
       <div className="collection-card-footer">
         <div className="question-count-options">
-          {uniqueOptions.map(count => (
+          {availableOptions.map(count => (
             <button 
               key={count} 
               className="question-count-button"

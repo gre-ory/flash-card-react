@@ -94,6 +94,7 @@ function QuizCard({ term, answer, onResult, active }) {
     setIsDragging(false);
     
     if (!active) return;
+    if (isAnimatingOut) return;
     
     // Determine if card was swiped far enough to count as a result
     if (offsetX > 100) {
@@ -201,18 +202,18 @@ function QuizCard({ term, answer, onResult, active }) {
             {term}
           </div>
           <div className="card-buttons">
-            <div 
+            <button 
               className="incorrect-button" 
               onClick={onIncorrectClick}
             >
-              <span>← Incorrect</span>
-            </div>
-            <div 
+              ← Incorrect
+            </button>
+            <button
               className="correct-button"
               onClick={onCorrectClick}
             >
-              <span>Correct →</span>
-            </div>
+              Correct →
+            </button>
           </div>          
         </div>
         <div className="card-back">
@@ -223,18 +224,18 @@ function QuizCard({ term, answer, onResult, active }) {
             {answer}
           </div>
           <div className="card-buttons">
-            <div 
+            <button 
               className="incorrect-button" 
               onClick={onIncorrectClick}
             >
-              <span>← Incorrect</span>
-            </div>
-            <div 
+              ← Incorrect
+            </button>
+            <button
               className="correct-button"
               onClick={onCorrectClick}
             >
-              <span>Correct →</span>
-            </div>
+              Correct →
+            </button>
           </div>
         </div>
       </div>

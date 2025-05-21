@@ -28,19 +28,51 @@ a {
     padding: 20px;
 }
 
-.button {
-    display: inline-block;
-    padding: 10px 20px;
+/* button */
+
+body {
+    --button-h-margin: 10px;
+    --button-v-margin: 10px;
+    --button-h-padding: 8px;
+    --button-v-padding: 4px;
+    --button-font-size: 12px;
+    --button-border-radius: 4px;
+    --button-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --button-color: var(--color-black);
+    --button-back-color: var(--color-cyan);
+    --disabled-button-color: #999;
+    --disabled-button-back-color: #ccc;
+}
+
+button {
+    color: var(--button-color);
+    background-color: var(--button-back-color);
     border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: white;
+    padding: var(--button-v-padding) var(--button-h-padding);
+    margin: var(--button-v-margin) var(--button-h-margin);
+    font-size: var(--button-font-size);
+    border-radius: var(--button-border-radius);
+    box-shadow: var(--button-box-shadow);
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
-.button:hover {
-    background-color: #0056b3;
+button:hover {
+    filter: brightness(110%);
+    transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+button:disabled,
+button[disabled] {
+    color: var(--disabled-button-color);
+    background-color: var(--disabled-button-back-color);
+    cursor: default;
+    filter: none !important;
+    transform: none !important;
 }
 
 /* colors */
@@ -73,6 +105,11 @@ body {
     --progress-success-color: var(--color-green);
     --progress-failure-color: var(--color-red);
     --progress-back-color: var(--color-white);
+
+    --button-color: var(--color-black);
+    --button-back-color: var(--color-cyan);
+    --disabled-button-color: #999;
+    --disabled-button-back-color: #ccc;
 }
 
 /* debug */
