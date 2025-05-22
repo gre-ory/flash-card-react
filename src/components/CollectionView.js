@@ -77,7 +77,7 @@ function CollectionView({ collection, stats, onClose }) {
       case 'value':
         result = compareValue(a,b);
         break;
-      case 'box':
+      case 'group':
         result = compareGroup(a,b);
         break;
       case 'ok':
@@ -163,7 +163,7 @@ function CollectionView({ collection, stats, onClose }) {
         <table className="collection-table">
           <thead>
             <tr>
-              {['key','value','box','ok','ko','rate'].map((name, _) => {
+              {['key','value','group','ok','ko','rate'].map((name, _) => {
                 var key = name.toLowerCase()
                 return <th 
                   className={getThStyle(key)} 
@@ -184,7 +184,7 @@ function CollectionView({ collection, stats, onClose }) {
                 return <tr key={`${item.key}-${index}`}>
                   <td>{item.key}</td>
                   <td>{item.value}</td>
-                  <td>{group}</td>
+                  <td>{group+1}</td>
                   <td>{nbCorrect}</td>
                   <td>{nbIncorrect}</td>
                   <td>{rate}%</td>
