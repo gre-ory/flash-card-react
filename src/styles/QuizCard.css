@@ -132,6 +132,10 @@
 }
 
 .card-buttons button {
+  --button-h-margin: 0;
+  --button-v-margin: 0;
+  --button-h-padding: 18px;
+  --button-v-padding: 14px;
   --button-box-shadow: none;
 }
 
