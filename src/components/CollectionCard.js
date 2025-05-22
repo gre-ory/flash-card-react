@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/CollectionCard.css';
 
-function CollectionCard({ collection, onSelect, onView }) {
+function CollectionCard({ collection, stats, onSelect, onView }) {
   // Available question count options
   const questionOptions = [10, 20, 30, 50];
   
@@ -14,16 +14,29 @@ function CollectionCard({ collection, onSelect, onView }) {
     <div className="collection-card">
       <div className="collection-card-header">
         <h3>{collection.title}</h3>
-        
+
         <button 
-          className="view-collection-button"
+          className="view-button"
           onClick={() => onView(collection.id)}
         >
-          {collection.items.length} terms
+          &#x1F441;
         </button>
       </div>
       
-      <div className="collection-card-footer">
+      <div className="collection-card-content">
+        
+        <div className="collection-boxes">
+        {[0,1,2,3,4].map(boxIndex => {
+          var count = collection.items.filter(item => {
+            var box = (stats[item.key] || {}).group || 0;
+            return box === boxIndex;
+          }).length
+          return <div key={boxIndex} className={`collection-box box-${boxIndex + 1}`}>
+            {count}
+          </div>
+        })}
+        </div>
+
         <div className="question-count-options">
           {availableOptions.map(count => (
             <button 
@@ -35,8 +48,9 @@ function CollectionCard({ collection, onSelect, onView }) {
             </button>
           ))}
         </div>
-        
+
       </div>
+
     </div>
   );
 }

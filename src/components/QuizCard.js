@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import '../styles/QuizCard.css';
 
-function QuizCard({ term, answer, onResult, active }) {
+function QuizCard({ term, answer, onResult, questionNumber, nbQuestion, active }) {
   const [isFlipped, setIsFlipped] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -55,14 +55,14 @@ function QuizCard({ term, answer, onResult, active }) {
   };
 
   const onTouchStart = (e) => {
-    if (!isAnimatingOut && active) {
+    if (isFlipped && !isAnimatingOut && active) {
       setIsDragging(true);
       setStartX(e.touches[0].clientX);
     }
   };
 
   const onMouseDown = (e) => {
-    if (!isAnimatingOut && active) {
+    if (isFlipped && !isAnimatingOut && active) {
       setIsDragging(true);
       setStartX(e.clientX);
     }
@@ -196,12 +196,12 @@ function QuizCard({ term, answer, onResult, active }) {
       >
         <div className="card-front"> 
           <div className="card-instruction">
-            <small>Tap to flip, or swipe to mark as correct/incorrect</small>
+            Question {questionNumber} / {nbQuestion}
           </div>
           <div className="card-content">
             {term}
           </div>
-          <div className="card-buttons">
+          {/* <div className="card-buttons">
             <button 
               className="incorrect-button" 
               onClick={onIncorrectClick}
@@ -214,11 +214,11 @@ function QuizCard({ term, answer, onResult, active }) {
             >
               Correct →
             </button>
-          </div>          
+          </div> */}
         </div>
         <div className="card-back">
           <div className="card-instruction">
-            <small>ANSWER</small>
+            Answer {questionNumber} / {nbQuestion}
           </div>
           <div className="card-content">
             {answer}

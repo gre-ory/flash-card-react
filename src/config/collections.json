@@ -1,58 +1,455 @@
 {
   "collections": [
     {
-      "id": "english-french",
-      "title": "English to French",
-      "reversible": true,
+      "id": "chiffre-son",
+      "title": "Chiffres et Sons",
+      "reversible": false,
       "items": [
         {
-          "key": "hello",
-          "value": "bonjour"
+          "key": "0",
+          "value": "cul"
         },
         {
-          "key": "goodbye",
-          "value": "au revoir"
+          "key": "1",
+          "value": "lit"
         },
         {
-          "key": "thank you",
-          "value": "merci"
+          "key": "2",
+          "value": "nue"
+        },
+        {
+          "key": "3",
+          "value": "mat"
+        },
+        {
+          "key": "4",
+          "value": "veau"
+        },
+        {
+          "key": "5",
+          "value": "scie"
+        },
+        {
+          "key": "6",
+          "value": "chat"
+        },
+        {
+          "key": "7",
+          "value": "tee"
+        },
+        {
+          "key": "8",
+          "value": "boa"
+        },
+        {
+          "key": "9",
+          "value": "go"
+        },
+        {
+          "key": "10",
+          "value": "lac"
+        },
+        {
+          "key": "11",
+          "value": "lolo"
+        },
+        {
+          "key": "12",
+          "value": "lune"
+        },
+        {
+          "key": "13",
+          "value": "lama"
+        },
+        {
+          "key": "14",
+          "value": "lave"
+        },
+        {
+          "key": "15",
+          "value": "lasso"
+        },
+        {
+          "key": "16",
+          "value": "louche"
+        },
+        {
+          "key": "17",
+          "value": "lutte"
+        },
+        {
+          "key": "18",
+          "value": "labo"
+        },
+        {
+          "key": "19",
+          "value": "legue"
+        },
+        {
+          "key": "20",
+          "value": "nec"
+        },
+        {
+          "key": "21",
+          "value": "noel"
+        },
+        {
+          "key": "22",
+          "value": "nana"
+        },
+        {
+          "key": "23",
+          "value": "nem"
+        },
+        {
+          "key": "24",
+          "value": "neve"
+        },
+        {
+          "key": "25",
+          "value": "nasse"
+        },
+        {
+          "key": "26",
+          "value": "niche"
+        },
+        {
+          "key": "27",
+          "value": "note"
+        },
+        {
+          "key": "28",
+          "value": "nabot"
+        },
+        {
+          "key": "29",
+          "value": "nougat"
+        },
+        {
+          "key": "30",
+          "value": "mac"
+        },
+        {
+          "key": "31",
+          "value": "moule"
+        },
+        {
+          "key": "32",
+          "value": "moine"
+        },
+        {
+          "key": "33",
+          "value": "momie"
+        },
+        {
+          "key": "34",
+          "value": "morve"
+        },
+        {
+          "key": "35",
+          "value": "mousse"
+        },
+        {
+          "key": "36",
+          "value": "mouche"
+        },
+        {
+          "key": "37",
+          "value": "mouton"
+        },
+        {
+          "key": "38",
+          "value": "moby"
+        },
+        {
+          "key": "39",
+          "value": "megot"
+        },
+        {
+          "key": "40",
+          "value": "vioc"
+        },
+        {
+          "key": "41",
+          "value": "velo"
+        },
+        {
+          "key": "42",
+          "value": "vanne"
+        },
+        {
+          "key": "43",
+          "value": "vomi"
+        },
+        {
+          "key": "44",
+          "value": "vive"
+        },
+        {
+          "key": "45",
+          "value": "vis"
+        },
+        {
+          "key": "46",
+          "value": "vache"
+        },
+        {
+          "key": "47",
+          "value": "vote"
+        },
+        {
+          "key": "48",
+          "value": "vibro"
+        },
+        {
+          "key": "49",
+          "value": "vague"
+        },
+        {
+          "key": "50",
+          "value": "sac"
+        },
+        {
+          "key": "51",
+          "value": "sale"
+        },
+        {
+          "key": "52",
+          "value": "sauna"
+        },
+        {
+          "key": "53",
+          "value": "sumo"
+        },
+        {
+          "key": "54",
+          "value": "savon"
+        },
+        {
+          "key": "55",
+          "value": "sos"
+        },
+        {
+          "key": "56",
+          "value": "souche"
+        },
+        {
+          "key": "57",
+          "value": "satan"
+        },
+        {
+          "key": "58",
+          "value": "sabot"
+        },
+        {
+          "key": "59",
+          "value": "saga"
+        },
+        {
+          "key": "60",
+          "value": "choc"
+        },
+        {
+          "key": "61",
+          "value": "chiale"
+        },
+        {
+          "key": "62",
+          "value": "chaine"
+        },
+        {
+          "key": "63",
+          "value": "chameau"
+        },
+        {
+          "key": "64",
+          "value": "cheval"
+        },
+        {
+          "key": "65",
+          "value": "chasse"
+        },
+        {
+          "key": "66",
+          "value": "cheche"
+        },
+        {
+          "key": "67",
+          "value": "château"
+        },
+        {
+          "key": "68",
+          "value": "chabal"
+        },
+        {
+          "key": "69",
+          "value": "shogun"
+        },
+        {
+          "key": "70",
+          "value": "tique"
+        },
+        {
+          "key": "71",
+          "value": "tuile"
+        },
+        {
+          "key": "72",
+          "value": "tonne"
+        },
+        {
+          "key": "73",
+          "value": "tomme"
+        },
+        {
+          "key": "74",
+          "value": "tv"
+        },
+        {
+          "key": "75",
+          "value": "tasse"
+        },
+        {
+          "key": "76",
+          "value": "tache"
+        },
+        {
+          "key": "77",
+          "value": "tête"
+        },
+        {
+          "key": "78",
+          "value": "tuba"
+        },
+        {
+          "key": "79",
+          "value": "tag"
+        },
+        {
+          "key": "80",
+          "value": "bouc"
+        },
+        {
+          "key": "81",
+          "value": "bulle"
+        },
+        {
+          "key": "82",
+          "value": "benne"
+        },
+        {
+          "key": "83",
+          "value": "boum"
+        },
+        {
+          "key": "84",
+          "value": "bave"
+        },
+        {
+          "key": "85",
+          "value": "bosse"
+        },
+        {
+          "key": "86",
+          "value": "bouche"
+        },
+        {
+          "key": "87",
+          "value": "bite"
+        },
+        {
+          "key": "88",
+          "value": "bébé"
+        },
+        {
+          "key": "89",
+          "value": "bague"
+        },
+        {
+          "key": "90",
+          "value": "geek"
+        },
+        {
+          "key": "91",
+          "value": "goal"
+        },
+        {
+          "key": "92",
+          "value": "gaine"
+        },
+        {
+          "key": "93",
+          "value": "gomme"
+        },
+        {
+          "key": "94",
+          "value": "gave"
+        },
+        {
+          "key": "95",
+          "value": "gosse"
+        },
+        {
+          "key": "96",
+          "value": "gauche"
+        },
+        {
+          "key": "97",
+          "value": "gâteau"
+        },
+        {
+          "key": "98",
+          "value": "gobe"
+        },
+        {
+          "key": "99",
+          "value": "gag"
+        },
+        {
+          "key": "00",
+          "value": "coco"
+        },
+        {
+          "key": "01",
+          "value": "coule"
+        },
+        {
+          "key": "02",
+          "value": "cuni"
+        },
+        {
+          "key": "03",
+          "value": "came"
+        },
+        {
+          "key": "04",
+          "value": "cave"
+        },
+        {
+          "key": "05",
+          "value": "casse"
+        },
+        {
+          "key": "06",
+          "value": "couche"
+        },
+        {
+          "key": "07",
+          "value": "couteau"
+        },
+        {
+          "key": "08",
+          "value": "cowboy"
+        },
+        {
+          "key": "09",
+          "value": "cague"
         }
       ]
     },
     {
-      "id": "capital-cities",
-      "title": "Countries and Capital Cities",
-      "reversible": true,
-      "items": [
-        {
-          "key": "France",
-          "value": "Paris"
-        },
-        {
-          "key": "Japan",
-          "value": "Tokyo"
-        },
-        {
-          "key": "Germany",
-          "value": "Berlin"
-        },
-        {
-          "key": "Italy",
-          "value": "Rome"
-        },
-        {
-          "key": "UK",
-          "value": "London"
-        },
-        {
-          "key": "Brazil",
-          "value": "Brasília"
-        }
-      ]
-    },
-    {
-      "id": "french-phonetic",
-      "title": "French Telephony Alphabet",
+      "id": "nato-alphabet",
+      "title": "Alphabet OTAN",
       "reversible": false,
       "items": [
         {
@@ -162,8 +559,8 @@
       ]
     },
     {
-      "id": "multiplication-table",
-      "title": "Multiplication Table (2-15)",
+      "id": "math",
+      "title": "Math",
       "reversible": false,
       "items": [
         {
@@ -585,6 +982,216 @@
         {
           "key": "15 × 15",
           "value": "225"
+        }
+      ]
+    },
+    {
+      "id": "english-french",
+      "title": "English to French",
+      "reversible": true,
+      "items": [
+        {
+          "key": "hello",
+          "value": "bonjour"
+        },
+        {
+          "key": "goodbye",
+          "value": "au revoir"
+        },
+        {
+          "key": "thank you",
+          "value": "merci"
+        }
+      ]
+    },    
+    {
+      "id": "capital-cities",
+      "title": "Capitales",
+      "reversible": true,
+      "items": [
+        {
+          "key": "Albanie",
+          "value": "Tirana"
+        },
+        {
+          "key": "Allemagne",
+          "value": "Berlin"
+        },
+        {
+          "key": "Andorre",
+          "value": "Andorre-la-vieille"
+        },
+        {
+          "key": "Autriche",
+          "value": "Vienne"
+        },
+        {
+          "key": "Belgique",
+          "value": "Bruxelles"
+        },
+        {
+          "key": "Biélorussie",
+          "value": "Minsk"
+        },
+        {
+          "key": "Bosnie-Herzégovine",
+          "value": "Sarajevo"
+        },
+        {
+          "key": "Bulgarie",
+          "value": "Sofia"
+        },
+        {
+          "key": "Chypre",
+          "value": "Nicosie"
+        },
+        {
+          "key": "Croatie",
+          "value": "Zagreb"
+        },
+        {
+          "key": "Danemark",
+          "value": "Copenhague"
+        },
+        {
+          "key": "Espagne",
+          "value": "Madrid"
+        },
+        {
+          "key": "Estonie",
+          "value": "Talinn"
+        },
+        {
+          "key": "Finlande",
+          "value": "Helsinki"
+        },
+        {
+          "key": "France",
+          "value": "Paris"
+        },
+        {
+          "key": "Grèce",
+          "value": "Athènes"
+        },
+        {
+          "key": "Hongrie",
+          "value": "Budapest"
+        },
+        {
+          "key": "Irlande",
+          "value": "Dublin"
+        },
+        {
+          "key": "Islande",
+          "value": "Reykjavik"
+        },
+        {
+          "key": "Italie",
+          "value": "Rome"
+        },
+        {
+          "key": "Kosovo",
+          "value": "Pristina"
+        },
+        {
+          "key": "Lettonie",
+          "value": "Riga"
+        },
+        {
+          "key": "Liechtenstien",
+          "value": "Vaduz"
+        },
+        {
+          "key": "Lituanie",
+          "value": "Vilnius"
+        },
+        {
+          "key": "Luxembourg",
+          "value": "Luxembourg"
+        },
+        {
+          "key": "Macédoine du nord",
+          "value": "Skopje"
+        },
+        {
+          "key": "Malte",
+          "value": "La Valette"
+        },
+        {
+          "key": "Moldavie",
+          "value": "Chisinau"
+        },
+        {
+          "key": "Monaco",
+          "value": "Monaco"
+        },
+        {
+          "key": "Monténégro",
+          "value": "Podgorica"
+        },
+        {
+          "key": "Norvège",
+          "value": "Oslo"
+        },
+        {
+          "key": "Pays-Bas",
+          "value": "Amsterdam"
+        },
+        {
+          "key": "Pologne",
+          "value": "Varsovie"
+        },
+        {
+          "key": "Portugal",
+          "value": "Lisbonne"
+        },
+        {
+          "key": "République tchèque",
+          "value": "Prague"
+        },
+        {
+          "key": "Roumanie",
+          "value": "Bucarest"
+        },
+        {
+          "key": "Royaume-Uni",
+          "value": "Londres"
+        },
+        {
+          "key": "Russie",
+          "value": "Moscou"
+        },
+        {
+          "key": "Saint-Marin",
+          "value": "Saint-Marin"
+        },
+        {
+          "key": "Serbie",
+          "value": "Belgrade"
+        },
+        {
+          "key": "Slovaquie",
+          "value": "Bratislava"
+        },
+        {
+          "key": "Slovénie",
+          "value": "Ljubljana"
+        },
+        {
+          "key": "Suisse",
+          "value": "Berne"
+        },
+        {
+          "key": "Suède",
+          "value": "Stockholm"
+        },
+        {
+          "key": "Ukraine",
+          "value": "Kiev"
+        },
+        {
+          "key": "Vatican",
+          "value": "Vatican"
         }
       ]
     }

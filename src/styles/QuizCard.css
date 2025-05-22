@@ -86,7 +86,9 @@
 .card-front .card-instruction {
   margin-bottom: 20px;
   color: var(--front-card-instruction-color);
-  font-size: 14px;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .card-front .card-content {
@@ -104,7 +106,9 @@
 .card-back .card-instruction {
   margin-bottom: 20px;
   color: var(--back-card-instruction-color);
-  font-size: 14px;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .card-back .card-content {

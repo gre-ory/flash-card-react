@@ -118,7 +118,7 @@ function App() {
     setTermStats(prevStats => {
       if ( !prevStats[collectionId] ) { prevStats[collectionId] = {} }
       if ( !prevStats[collectionId][term] ) { prevStats[collectionId][term] = { group: 0, correct: 0, incorrect: 0 } }
-      prevStats[collectionId][term].group = Math.min(prevStats[collectionId][term].group+1,5);
+      prevStats[collectionId][term].group = Math.min(prevStats[collectionId][term].group+1,4);
       prevStats[collectionId][term].correct++;
       console.log(`[onCorrectTerm] >>> >>> ${prevStats[collectionId][term].correct}`);
       saveStats(prevStats);
@@ -160,6 +160,7 @@ function App() {
           <SelectionScreen 
             collections={collectionsData.collections} 
             onViewCollection={onViewCollection}
+            stats={termStats}
             onStartQuiz={onStartQuiz} 
           />
         )}

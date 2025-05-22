@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import CollectionCard from './CollectionCard';
 import '../styles/SelectionScreen.css';
 
-function SelectionScreen({ collections, onViewCollection, onStartQuiz }) {
+function SelectionScreen({ collections, stats, onViewCollection, onStartQuiz }) {
 
   return (
     <div className="selection-screen">
@@ -12,6 +12,7 @@ function SelectionScreen({ collections, onViewCollection, onStartQuiz }) {
           <CollectionCard 
             key={collection.id}
             collection={collection}
+            stats={stats[collection.id] || {}}
             onSelect={onStartQuiz}
             onView={onViewCollection}
           />

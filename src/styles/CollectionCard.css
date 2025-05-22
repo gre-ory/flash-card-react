@@ -9,16 +9,55 @@
 }
 
 .collection-card-header {
+  position: relative;
   margin-bottom: 5px;
 }
 
 .collection-card-header h3 {
-margin: 10px 0px;
+    margin: 10px 0px;
     font-size: 10px;
     color: #ccc;
     text-transform: uppercase;
     border-bottom: 1px solid #ccc;
     padding-bottom: 10px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.collection-boxes {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0px 10px;
+}
+
+.collection-box {
+  flex-grow: 1;
+  font-size: 10px;
+  box-shadow: var(--box-shadow);
+  margin: 3px;
+  padding: 3px 0px;
+  border-radius: 5px;
+}
+
+.collection-box.box-1 {
+  background-color: var(--color-red);
+}
+
+.collection-box.box-2 {
+  background-color: var(--color-yellow);
+}
+
+.collection-box.box-3 {
+  background-color: var(--color-green);
+}
+
+.collection-box.box-4 {
+  background-color: var(--color-cyan);
+}
+
+.collection-box.box-5 {
+  background-color: var(--color-blue);
 }
 
 .collection-stats {
@@ -56,17 +95,31 @@ margin: 10px 0px;
 .question-count-options {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 15px;
-  justify-content: space-evenly;
+  gap: 10px;
+  margin: 10px;
+  margin-top: 30px;
+  justify-content: space-around;
 }
 
-.view-collection-button {
+.view-button {
+  position: absolute;
+  top: -4px;
+  right: 10px;
+  font-size: 14px;
+  padding-bottom: 2px;
+  --button-h-padding: 4px;
+  --button-v-padding: 0px;
+  --button-h-margin: 0px;
+  --button-v-margin: 0px;
+  border-radius: 14px;
   --button-back-color: var(--color-gray);
 }
 
-.question-count-options {
+.question-count-button {
+  flex-grow: 1;
   --button-h-padding: 20px;
-  --button-v-padding: 10px;
+  --button-v-padding: 20px;
+  --button-h-margin: 0px;
+  --button-v-margin: 0px;
   --button-back-color: var(--color-cyan);
 }

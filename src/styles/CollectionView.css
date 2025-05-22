@@ -1,5 +1,42 @@
-.collection-table {
+.collection-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.collection-header {
+  text-align: center;
+  margin-bottom: 40px;
+  line-height: 40px;
   width: 100%;
+}
+
+.collection-header .button-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  --button-back-color: var(--color-gray);
+}
+
+.collection-content .pagination {
+  text-align: center;
+  margin-top: 40px;
+  width: 100%;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  z-index: 300;
+}
+
+.collection-search .search-input {
+  width: calc(100% - 20px - 20px);
+  padding: 3px 10px;
+  box-shadow: var(--box-shadow)
+}
+
+.collection-table {
+  width: calc(100% - 20px);
   border-collapse: collapse;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin: 10px;
@@ -9,6 +46,24 @@
   border: 1px solid #bbb;
   padding: 8px;
 }
+.collection-table th {
+  cursor: pointer;
+}
+
+.collection-table th.order {
+  background-color: #70abc2;
+}
+.collection-table th:after {
+  content: "\00a0\00a0";
+  width: 10px;
+}
+.collection-table th.desc::after {
+  content: "\00a0\2193";
+}
+.collection-table th.asc::after {
+  content: "\00a0\2191";
+}
+
 .collection-table th {
   background-color: #96e1ff;
   text-align: left;

@@ -87,17 +87,18 @@ body {
     --color-cyan: #97DED8;
     --color-green: #C3F2BB;
     --color-gray: #CCC;
+    --color-dark-gray: #666;
 
     --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 
     --main-back-color: var(--color-yellow);
     --main-text-color: var(--color-black);
-    --front-card-instruction-color: var(--color-black);
+    --front-card-instruction-color: var(--color-dark-gray);
     --front-card-text-color: var(--color-black);
     --front-card-incorrect-color: var(--color-black);
     --front-card-correct-color: var(--color-black);
     --front-card-back-color: var(--color-cyan);
-    --back-card-instruction-color: var(--color-black);
+    --back-card-instruction-color: var(--color-dark-gray);
     --back-card-text-color: var(--color-black);
     --back-card-incorrect-color: var(--color-black);
     --back-card-correct-color: var(--color-black);

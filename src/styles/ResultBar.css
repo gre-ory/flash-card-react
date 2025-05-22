@@ -1,0 +1,40 @@
+.result-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.results {
+  flex-grow: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.details {
+  flex-grow: 1;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.result-item{
+  flex-grow: 1;
+  height: 10px;
+  padding: 10px 0px;
+  margin: 0px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, .2);
+}
+
+
+.result-item.undone {
+  background-color: var(--color-gray);
+}
+
+.result-item.correct {
+  background-color: var(--color-green);
+}
+
+.result-item.incorrect {
+  background-color: var(--color-red);
+}
