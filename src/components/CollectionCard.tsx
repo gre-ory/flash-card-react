@@ -1,15 +1,26 @@
 import React from 'react';
 import '../styles/CollectionCard.css';
+import Collection from '../types/Collection';
+import CollectionStats from '../types/CollectionStats';
 
-function CollectionCard({ collection, stats, onSelect, onView }) {
+type CollectionCardProps = {
+  key: string,
+  collection: Collection,
+  stats: CollectionStats,
+  onSelect: any,
+  onView: any
+}
+
+function CollectionCard({ collection, stats, onSelect, onView }: CollectionCardProps) {
+
   // Available question count options
   const questionOptions = [10, 20, 30, 50];
   
   // Filter options based on collection size
-  var availableOptions = collection.items.length < 10
-    ? [collection.items.length]
-    : questionOptions.filter(count => count <= collection.items.length);
-    
+  var availableOptions = collection.terms.length < 10
+    ? [collection.terms.length]
+    : questionOptions.filter(count => count <= collection.terms.length);
+
   return (
     <div className="collection-card">
       <div className="collection-card-header">
@@ -26,12 +37,13 @@ function CollectionCard({ collection, stats, onSelect, onView }) {
       <div className="collection-card-content">
         
         <div className="collection-boxes">
-        {[0,1,2,3,4].map(boxIndex => {
-          var count = collection.items.filter(item => {
-            var box = (stats[item.key] || {}).group || 0;
-            return box === boxIndex;
+        {[1,2,3,4,5].map(group => {
+          var count = collection.terms.filter(term => {
+            const termStats = term.getStats(stats);
+            const termGroup = termStats.group;
+            return group === termGroup;
           }).length
-          return <div key={boxIndex} className={`collection-box box-${boxIndex + 1}`}>
+          return <div key={group} className={`collection-box box-${group}`}>
             {count}
           </div>
         })}

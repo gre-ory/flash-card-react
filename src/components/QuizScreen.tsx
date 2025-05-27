@@ -2,13 +2,20 @@ import React, { useState, useEffect } from 'react';
 import QuizCard from './QuizCard';
 import ResultBar from './ResultBar';
 import '../styles/QuizScreen.css';
+import Collection from '../types/Collection';
+import Question from '../types/Question';
 
-function QuizScreen({ collection, questions, onClose }) {
+type QuizScreenProps = {
+  collection: Collection,
+  questions: Question[],
+  onClose: () => void,
+}
+
+function QuizScreen({ collection, questions, onClose }: QuizScreenProps) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [nbSuccess, setNbSuccess] = useState(0);
   const [nbFailure, setNbFailure] = useState(0);
   const [result, setResult] = useState([]);
-  const [completedCards, setCompletedCards] = useState([]); // Track which cards are completed
   const [isCompleted, setIsCompleted] = useState(false);
 
   const onNextQuestion = () => {
@@ -19,32 +26,27 @@ function QuizScreen({ collection, questions, onClose }) {
     }
   }
 
-  const handleCardResult = (isCorrect) => {
+  const handleCardResult = (isCorrect: boolean, ms: number) => {
     const currentQuestion = questions[currentQuestionIndex];
 
     // Update score
     if (isCorrect) {
       setNbSuccess(nbSuccess + 1);
       setResult([...result,true]);
-      currentQuestion.onCorrect();
+      currentQuestion.onCorrect(ms);
     } else {
       setNbFailure(nbFailure + 1);
       setResult([...result,false]);
-      currentQuestion.onIncorrect();
+      currentQuestion.onIncorrect(ms);
     }
     
-    // Mark this card as completed
-    setCompletedCards(prev => [...prev, currentQuestionIndex]);
-
     // Move to next question or finish
     setTimeout(onNextQuestion, 300);
   };
 
   var nbQuestion = questions.length;
   var nbCompleted = nbSuccess + nbFailure;
-  var progressRate = isCompleted ? 100 : nbQuestion > 0 ? Math.round((nbCompleted / nbQuestion) * 100) : 0;
   var successRate = nbCompleted > 0 ? Math.round((nbSuccess / nbQuestion) * 100) : 0;
-  var failureRate = nbCompleted > 0 ? Math.round((nbFailure / nbQuestion) * 100) : 0;
   
   return (
     <div className="quiz-screen">
@@ -62,7 +64,7 @@ function QuizScreen({ collection, questions, onClose }) {
               </p>
             </div>
           : <div className="cards-container">
-            {questions.map((question, index) => (
+            {questions.map((question: Question, index: number) => (
               <div 
                 key={index} 
                 className={`card-animation-wrapper ${index === currentQuestionIndex ? 'current-card' : 'hidden-card'}`}
@@ -70,9 +72,9 @@ function QuizScreen({ collection, questions, onClose }) {
                 {/* Only render cards that are current or next to avoid performance issues with too many cards */}
                 {(index >= currentQuestionIndex - 1 && index <= currentQuestionIndex + 1) && (
                   <QuizCard 
-                    term={question.questionText}
-                    answer={question.correctAnswer}
-                    onResult={(isCorrect) => handleCardResult(isCorrect)}
+                    question={question.question}
+                    answer={question.answer}
+                    onResult={handleCardResult}
                     active={index === currentQuestionIndex}
                     questionNumber={currentQuestionIndex+1}
                     nbQuestion={nbQuestion}

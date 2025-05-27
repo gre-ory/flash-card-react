@@ -1,78 +1,91 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/CollectionView.css';
+import Collection from '../types/Collection';
+import CollectionStats from '../types/CollectionStats';
+import Term from '../types/Term';
+import TermStats from '../types/TermStats';
 
-function CollectionView({ collection, stats, onClose }) {
+type CollectionViewProps = {
+  collection: Collection,
+  collectionStats: CollectionStats,
+  onClose: () => void
+}
+
+function CollectionView({ collection, collectionStats, onClose }: CollectionViewProps) {
   const [currentOrder, setOrder] = useState('');
   const [currentOrderDirection, setOrderDirection] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const [filteredItems, setFilteredItems] = useState([]);
+  const [filteredItems, setFilteredItems] = useState([] as Term[]);
   const itemsPerPage = 10;
   
   // Filter items when search term changes
   useEffect(() => {
     if (!searchTerm.trim()) {
-      setFilteredItems(collection.items);
+      setFilteredItems(collection.terms);
     } else {
-      const term = searchTerm.toLowerCase().trim();
-      const filtered = collection.items.filter(item => 
-        item.key.toLowerCase().includes(term) || 
-        item.value.toLowerCase().includes(term)
+      const search = searchTerm.toLowerCase().trim();
+      const filtered = collection.terms.filter((term: Term) => 
+        term.key.toLowerCase().includes(search) || 
+        term.value.toLowerCase().includes(search)
       );
       setFilteredItems(filtered);
     }
     setCurrentPage(1); // Reset to first page when search changes
-  }, [searchTerm, collection.items]);
+  }, [searchTerm, collection.terms]);
 
   
 
   // sort current items
-  const compareKey = (a,b) => {
+  const compareKey = (a: Term, b: Term): number => {
     return a.key.localeCompare(b.key)
   }
-  const compareValue = (a,b) => {
+  const compareValue = (a: Term, b: Term): number => {
     return a.value.localeCompare(b.value)
   }
 
-  const getStat = (a) => {
-    return stats[a.key] || { group: 0, correct: 0, incorrect: 0 };
+  const getStat = (a: Term): TermStats => {
+    return a.getStats(collectionStats);
   }
 
-  const compareGroup = (a,b) => {
+  const compareGroup = (a: Term, b: Term): number => {
     if ( getStat(a).group < getStat(b).group ) return -1;
     if ( getStat(a).group > getStat(b).group ) return 1;
     return 0;
   }
 
-  const compareCorrect = (a,b) => {
+  const compareCorrect = (a: Term, b: Term): number => {
     if ( getStat(a).correct < getStat(b).correct ) return -1;
     if ( getStat(a).correct > getStat(b).correct ) return 1;
     return 0;
   }
 
-  const compareIncorrect = (a,b) => {
+  const compareIncorrect = (a: Term, b: Term): number => {
     if ( getStat(a).incorrect < getStat(b).incorrect ) return -1;
     if ( getStat(a).incorrect > getStat(b).incorrect ) return 1;
     return 0;
   }
   
-  const getRate = (a) => {
-    var stats = getStat(a);
-    var nbSeen = stats.correct + stats.incorrect;
-    if ( nbSeen > 0 ) {
-      return Math.round((stats.correct / nbSeen) * 100);
-    }
+  const compareRate = (a: Term, b: Term): number => {
+    if ( getStat(a).getSuccessRate() < getStat(b).getSuccessRate() ) return -1;
+    if ( getStat(a).getSuccessRate() > getStat(b).getSuccessRate() ) return 1;
+    return 0;
+  }
+  
+  const compareAvgTime = (a: Term, b: Term): number => {
+    if ( getStat(a).getAvgTime() < getStat(b).getAvgTime() ) return -1;
+    if ( getStat(a).getAvgTime() > getStat(b).getAvgTime() ) return 1;
+    return 0;
+  }
+  
+  const compareWeight = (a: Term, b: Term): number => {
+    if ( getStat(a).getWeight() < getStat(b).getWeight() ) return -1;
+    if ( getStat(a).getWeight() > getStat(b).getWeight() ) return 1;
     return 0;
   }
 
-  const compareRate = (a,b) => {
-    if ( getRate(a) < getRate(b) ) return -1;
-    if ( getRate(a) > getRate(b) ) return 1;
-    return 0;
-  }
-
-  const compareItem = (a,b) => {
-    var result = 0;
+  const compareItem = (a: Term, b: Term): number => {
+    var result: number = 0;
     switch ( currentOrder ) {
       case 'value':
         result = compareValue(a,b);
@@ -89,6 +102,12 @@ function CollectionView({ collection, stats, onClose }) {
       case 'rate':
         result = compareRate(a,b);
         break;
+      case 'time':
+        result = compareAvgTime(a,b);
+        break;
+      case 'weight':
+        result = compareWeight(a,b);
+        break;
     }
     if ( result === 0 ) {
       result = compareKey(a,b);
@@ -99,39 +118,35 @@ function CollectionView({ collection, stats, onClose }) {
     return result;
   }
   
-  console.log(`sort ${currentOrder} ${currentOrderDirection}`)
-  filteredItems.sort(compareItem);
+  (filteredItems as Term[]).sort(compareItem);
 
   // Calculate pagination
   const totalPages = Math.ceil(filteredItems.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = Math.min(startIndex + itemsPerPage, filteredItems.length);
-  const currentItems = filteredItems.slice(startIndex, endIndex);
+  const currentTerms = ( filteredItems as Term[] ).slice(startIndex, endIndex);
   
-  const goToPage = (page) => {
+  const goToPage = (page: number) => {
     if (page >= 1 && page <= totalPages) {
       setCurrentPage(page);
     }
   };
 
-  const toggleOrder = (order) => {
+  const toggleOrder = (order: string) => {
     if ( currentOrder === order ) {
       if ( currentOrderDirection === 'asc' ) {
-        console.log(` >>> ${order} desc`)
         setOrderDirection('desc');
       } else if ( currentOrderDirection === 'desc' ) {
-        console.log(` >>> reset`)
         setOrder('');
         setOrderDirection('');
       }
     } else {
-      console.log(` >>> ${order} asc`)
       setOrder(order);
       setOrderDirection('asc');
     }
   }
 
-  const getThStyle = (order) => {
+  const getThStyle = (order: string): string => {
     if ( currentOrder === order ) {
       if ( currentOrderDirection === 'asc' ) {
         return 'order asc'
@@ -163,7 +178,7 @@ function CollectionView({ collection, stats, onClose }) {
         <table className="collection-table">
           <thead>
             <tr>
-              {['key','value','group','ok','ko','rate'].map((name, _) => {
+              {['key','value','group','ok','ko','rate','time','weight'].map((name, _) => {
                 var key = name.toLowerCase()
                 return <th 
                   className={getThStyle(key)} 
@@ -174,20 +189,18 @@ function CollectionView({ collection, stats, onClose }) {
             </tr>
           </thead>
           <tbody>
-            {currentItems.length > 0 ? (
-              currentItems.map((item, index) => {
-                var group = stats[item.key].group;
-                var nbCorrect = stats[item.key].correct;
-                var nbIncorrect = stats[item.key].incorrect;
-                var nbSeen = nbCorrect + nbIncorrect;
-                var rate = nbSeen > 0 ? Math.round((nbCorrect / nbSeen) * 100) : 0;
-                return <tr key={`${item.key}-${index}`}>
-                  <td>{item.key}</td>
-                  <td>{item.value}</td>
-                  <td>{group+1}</td>
-                  <td>{nbCorrect}</td>
-                  <td>{nbIncorrect}</td>
-                  <td>{rate}%</td>
+            {currentTerms.length > 0 ? (
+              currentTerms.map((term: Term, index: number) => {
+                const termStats = term.getStats(collectionStats);
+                return <tr key={`${index}`}>
+                  <td>{term.key}</td>
+                  <td>{term.value}</td>
+                  <td>{termStats.group}</td>
+                  <td>{termStats.correct}</td>
+                  <td>{termStats.incorrect}</td>
+                  <td>{termStats.getSuccessRate()}%</td>
+                  <td>{termStats.getAvgTimeSeconds()} s</td>
+                  <td>{termStats.getWeight()}</td>
                 </tr>
               })
             ) : (
