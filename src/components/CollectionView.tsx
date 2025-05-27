@@ -243,7 +243,7 @@ function CollectionView({ collection, collectionStats, onClose }: CollectionView
               })
             ) : (
               <tr>
-                <td colSpan="6" className="no-results">
+                <td colSpan="8" className="no-results">
                   {searchTerm ? 'Not found' : 'Empty'}
                 </td>
               </tr>

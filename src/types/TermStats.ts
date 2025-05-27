@@ -5,7 +5,7 @@ const minGroup = 1;
 const maxGroup = 5;
 const maxNbTime = 3;
 const minMs = 100;
-const maxMs = 5000;
+const maxMs = 10000;
 
 const sanitizeMs = (ms: number): number => {
   return Math.round(Math.min(Math.max(ms, minMs), maxMs)/minMs) * minMs;
@@ -67,7 +67,14 @@ class TermStats {
   }
 
   getTimeWeight(): number {
-    return Math.round(Math.min(this.getAvgTime(), maxMs) / (maxMs) * 10) / 10 + 1;
+    // term is well known >>> weight = 1
+    const knownTime = 500;
+    // term is not known >>> weight = 2
+    const unknownTime = 2500;
+    var ms = this.getAvgTime();
+    ms = Math.max(ms,knownTime);
+    ms = Math.min(ms,unknownTime);
+    return Math.round((ms - knownTime) * 100 / (unknownTime - knownTime)) / 100 + 1;
   }
 
   getFactor(): number {
