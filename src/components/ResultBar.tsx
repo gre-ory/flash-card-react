@@ -1,6 +1,11 @@
 import '../styles/ResultBar.css';
 
-function ResultBar({ result, nbQuestion }) {
+type ResultBarProps = {
+  result: boolean[],
+  nbQuestion: number,
+}
+
+function ResultBar({ result, nbQuestion }: ResultBarProps) {
 
   var nbSuccess = result.filter(r => r === true).length;
   var nbCompleted = result.length;

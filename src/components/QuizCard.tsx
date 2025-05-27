@@ -1,13 +1,24 @@
 import React, { useState, useRef, useEffect } from 'react';
 import '../styles/QuizCard.css';
 
-function QuizCard({ term, answer, onResult, questionNumber, nbQuestion, active }) {
+type QuizCardProps = {
+  question: string,
+  answer: string,
+  onResult: (boolean, number) => void,
+  questionNumber: number,
+  nbQuestion: number,
+  active: boolean
+}
+
+function QuizCard({ question, answer, onResult, questionNumber, nbQuestion, active }: QuizCardProps) {
   const [isFlipped, setIsFlipped] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [offsetX, setOffsetX] = useState(0);
   const [isAnimatingOut, setIsAnimatingOut] = useState(false);
-  const [animationDirection, setAnimationDirection] = useState(null);
+  const [animationDirection, setAnimationDirection] = useState(null);  
+  const [startTime, setStartTime] = useState(0);
+  const [endTime, setEndTime] = useState(0);
   const cardRef = useRef(null);
 
   // Reset card state when it becomes active or inactive
@@ -17,6 +28,8 @@ function QuizCard({ term, answer, onResult, questionNumber, nbQuestion, active }
       setOffsetX(0);
       setIsAnimatingOut(false);
       setAnimationDirection(null);
+      setStartTime(Date.now());
+      setEndTime(0);
     }
   }, [active]);
 
@@ -29,11 +42,25 @@ function QuizCard({ term, answer, onResult, questionNumber, nbQuestion, active }
     );
   }
 
+  const answerTime = () => {
+    return startTime !== 0 && endTime !== 0 ? endTime - startTime : 0;
+  }
+
+  const toSeconds = (ms: number) => {
+    return ms !== 0 ? Math.round((ms)/100)/10 : 0;
+  }
+
   const onCardClick = (e) => {
     // prevent click when dragging
     if (!isDragging && !isAnimatingOut) {
+      if (!isFlipped && endTime === 0) {
+        const currentTime = Date.now();
+        setEndTime(currentTime)
+      }
       setIsFlipped(!isFlipped);
     }
+    // stop event propagation to prevent card flip
+    e.stopPropagation();
   };
 
   const onCorrectClick = (e) => {
@@ -107,7 +134,7 @@ function QuizCard({ term, answer, onResult, questionNumber, nbQuestion, active }
     }
   };
 
-  const animateSwipe = (isCorrect) => {
+  const animateSwipe = (isCorrect: boolean) => {
     // Set animation direction and state
     setAnimationDirection(isCorrect ? 'right' : 'left');
     setIsAnimatingOut(true);
@@ -122,8 +149,10 @@ function QuizCard({ term, answer, onResult, questionNumber, nbQuestion, active }
     const diffX = targetX - startOffset;
     
     const animateFrame = (timestamp) => {
-      if (!startTime) startTime = timestamp;
-      const elapsed = timestamp - startTime;
+      if ( !startTime ) {
+        startTime = timestamp;
+      } 
+      const elapsed = startTime ? timestamp - startTime : 0;
       
       if (elapsed < duration) {
         // Calculate progress with easing
@@ -139,7 +168,8 @@ function QuizCard({ term, answer, onResult, questionNumber, nbQuestion, active }
         
         // Notify parent component of result
         setTimeout(() => {
-          onResult(isCorrect);
+          console.log(`[action] >>> onResult( ${isCorrect}, ${answerTime()} ms )`)
+          onResult(isCorrect, answerTime());
         }, 100);
       }
     };
@@ -199,7 +229,7 @@ function QuizCard({ term, answer, onResult, questionNumber, nbQuestion, active }
             Question {questionNumber} / {nbQuestion}
           </div>
           <div className="card-content">
-            {term}
+            {question}
           </div>
           {/* <div className="card-buttons">
             <button 
