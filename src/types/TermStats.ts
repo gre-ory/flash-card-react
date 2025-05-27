@@ -33,11 +33,11 @@ class TermStats {
 
   toJson(term: string): JsonTermStats {
     return {
-      term: term,
-      group: this.group,
-      correct: this.correct,
-      incorrect: this.incorrect,
-      times: this.times
+      id: term,
+      gr: this.group,
+      co: this.correct,
+      in: this.incorrect,
+      ti: this.times
     };
   }
 
@@ -105,10 +105,10 @@ class TermStats {
   }
 
   load(json: JsonTermStats) {
-    this.group = Math.min(Math.max(json.group || minGroup, minGroup), maxGroup);
-    this.correct = Math.max(json.correct || 0, 0);
-    this.incorrect = Math.max(json.incorrect || 0, 0);
-    this.times = json.times ? json.times.slice(0,maxNbTime-1) : [];
+    this.group = Math.min(Math.max(json.gr || minGroup, minGroup), maxGroup);
+    this.correct = Math.max(json.co || 0, 0);
+    this.incorrect = Math.max(json.in || 0, 0);
+    this.times = json.ti ? json.ti.slice(0,maxNbTime-1) : [];
   }
 
   flagAsCorrect(ms: number) {

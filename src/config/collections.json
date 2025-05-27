@@ -557,25 +557,6 @@
           "value": "Zulu"
         }
       ]
-    },
-    {
-      "id": "english-french",
-      "title": "English to French",
-      "reversible": true,
-      "items": [
-        {
-          "key": "hello",
-          "value": "bonjour"
-        },
-        {
-          "key": "goodbye",
-          "value": "au revoir"
-        },
-        {
-          "key": "thank you",
-          "value": "merci"
-        }
-      ]
     },    
     {
       "id": "capital-cities",
@@ -765,6 +746,25 @@
         {
           "key": "Vatican",
           "value": "Vatican"
+        }
+      ]
+    },
+    {
+      "id": "english-french",
+      "title": "English to French",
+      "reversible": true,
+      "items": [
+        {
+          "key": "hello",
+          "value": "bonjour"
+        },
+        {
+          "key": "goodbye",
+          "value": "au revoir"
+        },
+        {
+          "key": "thank you",
+          "value": "merci"
         }
       ]
     }

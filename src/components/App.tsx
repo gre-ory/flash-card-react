@@ -47,10 +47,10 @@ function App() {
     if (rawStats !== '') {
       const jsonStats: JsonCollectionsStats = JSON.parse(rawStats);
       (collections as Collections).collections.forEach((collection: Collection) => {
-        const jsonCollectionStats: JsonCollectionStats = jsonStats.find(item => item.collectionId === collection.id) || {} as JsonCollectionStats;
+        const jsonCollectionStats: JsonCollectionStats = jsonStats.find(item => item.id === collection.id) || {} as JsonCollectionStats;
         const collectionStats = collection.getStats(stats);
         collection.terms.forEach(term => {
-          const jsonTermStats: JsonTermStats = ( jsonCollectionStats.terms || [] as JsonTermStats[] ).find(item => item.term === term.key) || {} as JsonTermStats;
+          const jsonTermStats: JsonTermStats = ( jsonCollectionStats.te || [] as JsonTermStats[] ).find(item => item.id === term.key) || {} as JsonTermStats;
           const termStats = term.getStats(collectionStats);
           termStats.load(jsonTermStats);
         });

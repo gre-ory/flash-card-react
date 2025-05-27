@@ -23,8 +23,8 @@ class CollectionStats {
       terms.push(termStats.toJson(key));
     });
     return {
-      collectionId: collectionId,
-      terms: terms,
+      id: collectionId,
+      te: terms,
     }
   }
 

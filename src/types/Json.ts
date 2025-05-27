@@ -5,11 +5,11 @@ export type JsonTerm = {
 }
 
 export type JsonTermStats = {
-  term: string,
-  group: number,
-  correct: number,
-  incorrect: number,
-  times: number[]
+  id: string, // term
+  gr: number, // group
+  co: number, // correct
+  in: number, // incorrect
+  ti: number[] // times
 }
 
 export type JsonCollection = {
@@ -20,8 +20,8 @@ export type JsonCollection = {
 }
 
 export type JsonCollectionStats = {
-  collectionId: string,
-  terms: JsonTermStats[]
+  id: string,         // collection id
+  te: JsonTermStats[] // terms
 }
 
 export type JsonCollections = {
