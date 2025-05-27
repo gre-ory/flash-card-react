@@ -93,10 +93,10 @@ function CollectionView({ collection, collectionStats, onClose }: CollectionView
       case 'group':
         result = compareGroup(a,b);
         break;
-      case 'ok':
+      case 'correct':
         result = compareCorrect(a,b);
         break;
-      case 'ko':
+      case 'incorrect':
         result = compareIncorrect(a,b);
         break;
       case 'rate':
@@ -177,15 +177,53 @@ function CollectionView({ collection, collectionStats, onClose }: CollectionView
       <div className="collection-table-container">
         <table className="collection-table">
           <thead>
-            <tr>
-              {['key','value','group','ok','ko','rate','time','weight'].map((name, _) => {
-                var key = name.toLowerCase()
-                return <th 
-                  className={getThStyle(key)} 
-                  onClick={() => toggleOrder(key)}>
-                    {name}
-                </th>
-              })}
+            <tr>              
+              <th 
+                className={getThStyle('key')} 
+                onClick={() => toggleOrder('key')}>
+                  key
+              </th>
+              <th 
+                className={getThStyle('value')} 
+                onClick={() => toggleOrder('value')}>
+                  value
+              </th>
+              <th 
+                className={getThStyle('correct')} 
+                onClick={() => toggleOrder('correct')}
+                title='number of correct answers'>
+                  ok
+              </th>
+              <th 
+                className={getThStyle('incorrect')} 
+                onClick={() => toggleOrder('incorrect')}
+                title='number of incorrect answers'>
+                  ko
+              </th>
+              <th 
+                className={getThStyle('rate')} 
+                onClick={() => toggleOrder('rate')}
+                title='success rate'>
+                  %
+              </th>
+              <th 
+                className={getThStyle('time')} 
+                onClick={() => toggleOrder('time')}
+                title='avg time'>
+                  t
+              </th>
+              <th 
+                className={getThStyle('group')} 
+                onClick={() => toggleOrder('group')}
+                title='group'>
+                  gr
+              </th>
+              <th 
+                className={getThStyle('weight')} 
+                onClick={() => toggleOrder('weight')}
+                title='weight'>
+                  w
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -195,11 +233,11 @@ function CollectionView({ collection, collectionStats, onClose }: CollectionView
                 return <tr key={`${index}`}>
                   <td>{term.key}</td>
                   <td>{term.value}</td>
-                  <td>{termStats.group}</td>
                   <td>{termStats.correct}</td>
                   <td>{termStats.incorrect}</td>
                   <td>{termStats.getSuccessRate()}%</td>
-                  <td>{termStats.getAvgTimeSeconds()} s</td>
+                  <td>{termStats.getAvgTimeSeconds()}s</td>
+                  <td>{termStats.group}</td>
                   <td>{termStats.getWeight()}</td>
                 </tr>
               })
