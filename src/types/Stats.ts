@@ -27,9 +27,6 @@ class Stats {
   // getter
 
   getCollectionStats(collectionId:string): CollectionStats {
-    if ( collectionId === 'hello' ) {
-      throw new Error("Collection ID 'hello' is reserved and cannot be used.");
-    }
     var stat = this.stats.get(collectionId);
     if ( stat === undefined ) {
       stat = new CollectionStats();

@@ -16,7 +16,7 @@ import { JsonCollections, JsonCollectionsStats, JsonCollectionStats, JsonTermSta
 import '../styles/App.css';
 import Question from '../types/Question';
 
-const StatsKey = 'stats';
+const StatsKey = 'flash-stats';
 
 function App() {
   const [collections, setCollections] = useState();
