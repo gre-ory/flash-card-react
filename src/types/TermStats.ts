@@ -68,16 +68,19 @@ class TermStats {
 
   getTimeWeight(): number {
     // term is well known >>> weight = 1
+    const knownWeight = 1;
     const knownTime = 500;
-    // term is not known >>> weight = 2
-    const unknownTime = 2500;
+    // term is not known >>> weight = 16
+    const unknownWeight = 16;
+    const unknownTime = 2000;
     var ms = this.getAvgTime();
     ms = Math.max(ms,knownTime);
     ms = Math.min(ms,unknownTime);
-    return Math.round((ms - knownTime) * 100 / (unknownTime - knownTime)) / 100 + 1;
+    const percent = Math.round((ms - knownTime) * 100 / (unknownTime - knownTime));
+    return (unknownWeight - knownWeight) * percent / 100 + knownWeight;
   }
 
-  getFactor(): number {
+  getGroupWeight(): number {
     switch (this.group) {
       case 1: return 16;
       case 2: return 8;
@@ -89,7 +92,7 @@ class TermStats {
   }
 
   getWeight(): number {
-    return Math.round(10 * this.getFactor() * this.getTimeWeight());
+    return Math.round(10 * this.getGroupWeight() * this.getTimeWeight());
   }
 
   getSeen(): number {
