@@ -57,7 +57,7 @@ class Collection {
       const termStats = stats.getTermStats(term.key);
       const termWeight = termStats.getWeight();
       totalWeight += termWeight;
-      // console.log(`[prepare] (+) term ${term.key} / group ${termStats.group} / factor ${termStats.getFactor()} / time ${termStats.getAvgTime()} / weight ${termWeight} / sumWeight ${sumWeight}`);
+      // console.log(`[prepare] (+) term ${term.key} / group ${termStats.group} / group.weight ${termStats.getGroupWeight()} / time ${termStats.getAvgTime()} / weight ${termWeight} / sumWeight ${sumWeight}`);
       weights.push(termWeight);
     });
     // console.log(`[prepare] totalWeight: ${totalWeight}`);
